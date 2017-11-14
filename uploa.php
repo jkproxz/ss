@@ -24,15 +24,31 @@
                 echo 'File Upload Bị Lỗi';
             }
             else{
-                // Upload file
-                move_uploaded_file($_FILES['avatar']['tmp_name'], './folder/'.$_FILES['avatar']['name']);
+
+                move_uploaded_file($_FILES['avatar']['tmp_name'], $_FILES['avatar']['name']);
                 echo 'File Uploaded';
+				$q = end(explode('.',$_FILES['avatar']['name']));
+				if ($q == 'zip') {
+$zip = new ZipArchive;
+$res= $zip->open($_FILES['avatar']['name']);
+if ($res==TRUE) { 
+$zip->extractTo('../src/');
+$zip->close();
+
+echo 'Thành Công';
+} else {
+echo 'không thành công';
+}
+}
             }
         }
         else{
             echo 'Bạn chưa chọn file upload';
         }
     }
+	echo '<br>';
+	$files_and_folder = glob('../src/*');
+print_r($files_and_folder);
 ?>
 </body>
 </html>
