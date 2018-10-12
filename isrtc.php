@@ -8,6 +8,9 @@ function userAgent() {
     return $userAgent;
 }
 /*--------------------
+
+https://github.com/jkproxz/ss
+
 $agent = "Mozilla/5.0(compatible; MSIE 5.01; Windows NT 5.0)";
 $ch=curl_init();
 curl_setopt($ch, CURLOPT_URL,'http://www.google.com.vn/m?lr=lang_vi&cr=countryVN&tbs=ctr:countryVN,lr:lang_1vi&q='.$t.''.$pp);
@@ -50,7 +53,7 @@ function cut($url,$cookie='',$user_agent='',$header='') {
 $html = html_entity_decode($html, ENT_QUOTES,'UTF-8');
 return $html;
 	}
-	$page = cut('http://www.google.com.vn/m?lr=lang_vi&cr=countryVN&tbs=ctr:countryVN,lr:lang_1vi&q='.$t.''.$pp);
+	$page = cut('http://www.google.com.vn/m?lr=lang_vi&tbs=ctr:countryVN,lr:lang_1vi&q='.$t.''.$pp);
 echo html_entity_decode($page, ENT_QUOTES,'UTF-8');
 
 } else {
